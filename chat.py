@@ -5,9 +5,7 @@ import textwrap
 import sys
 
 ## DEFINE CONSTANTS
-model = "gpt-4-0314"
-
-
+MODEL = "gpt-4-0314"
 
 ###     file operations
 
@@ -36,7 +34,7 @@ def open_file(filepath):
 ###     API functions
 
 
-def chatbot(conversation, model="gpt-4-0613", temperature=0):
+def chatbot(conversation, model=MODEL, temperature=0):
     max_retry = 7
     retry = 0
     while True:
