@@ -6,9 +6,10 @@ import sys
 
 ## DEFINE CONSTANTS
 MODEL = "gpt-4-0314"
+TEMPERATURE = 0.05 # add a little bit of temperature
+MAX_TOKENS = 2048 # this is the maximum number of words that can occur in the context of the conversation
 
 ###     file operations
-
 
 def save_yaml(filepath, data):
     with open(filepath, 'w', encoding='utf-8') as file:
@@ -34,12 +35,12 @@ def open_file(filepath):
 ###     API functions
 
 
-def chatbot(conversation, model=MODEL, temperature=0):
+def chatbot(conversation, model=MODEL, temperature=TEMPERATURE):
     max_retry = 7
     retry = 0
     while True:
         try:
-            response = openai.ChatCompletion.create(model=model, messages=conversation, temperature=temperature)
+            response = openai.ChatCompletion.create(model=model, messages=conversation, temperature=temperature, max_tokens=MAX_TOKENS)
             text = response['choices'][0]['message']['content']
             return text, response['usage']['total_tokens']
         except Exception as oops:
