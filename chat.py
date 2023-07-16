@@ -4,6 +4,10 @@ from time import time, sleep
 import textwrap
 import sys
 
+## DEFINE CONSTANTS
+model = "gpt-4-0314"
+
+
 
 ###     file operations
 
