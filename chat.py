@@ -2,6 +2,7 @@ from halo import Halo
 import openai
 from time import time, sleep
 import textwrap
+import yaml
 import sys
 
 ## DEFINE CONSTANTS
